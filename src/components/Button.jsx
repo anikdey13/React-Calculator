@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import { evaluate } from 'mathjs';
 
 const Button = (props) => {
   const handleClick = (e) => {
@@ -9,9 +10,11 @@ const Button = (props) => {
       // Clear the input
       props.setNumValue("");
     } else if (props.operator === "=") {
-      // Evaluate the expression
+      // Evaluate the expression safely
       try {
-        props.setNumValue((prevValue) => eval(prevValue).toString());
+        props.setNumValue((prevValue) => {
+          return evaluate(prevValue).toString();
+        });
       } catch (error) {
         props.setNumValue("Error");
       }
