@@ -5,7 +5,4 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   base: '/React-Calculator/',
   plugins: [react()],
-  build: {
-    outDir: 'build', // Change the output directory from 'dist' to 'build'
-  },
 })
